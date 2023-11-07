@@ -45,14 +45,14 @@ def count(count_list: list[str]) -> dict[str, int]:
 
 
 def alphabetizer(words: list[str]) -> dict[str, list[str]]:
-    """Defines alphabetizer which, takes a list of words and produces a dictionary of string and a list of strings (corresponds keys of letters to values of words that correspond tho those letters)."""
+    """Defines alphabetizer which takes a list of words and produces a dictionary of strings and a list of strings (corresponding keys of letters to values of words that correspond to those letters)."""
     result: dict[str, list[str]] = {}
     for word in words:
-        word = word.lower()
-        if word and 'a' <= word[0] <= 'z':
-            first_letter = word[0]
+        word_lower = word.lower()
+        if word_lower and 'a' <= word_lower[0] <= 'z':
+            first_letter = word_lower[0]
             if first_letter in result:
-                result[first_letter] = result[first_letter] + [word]
+                result[first_letter] += [word]
             else:
                 result[first_letter] = [word]
     
@@ -60,12 +60,13 @@ def alphabetizer(words: list[str]) -> dict[str, list[str]]:
 
 
 def update_attendance(attendance_log: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
-    """Update attendance takes three parameters, and uses the attendance log to update the attendance of students on a particular day."""
+    """Update attendance takes three parameters and uses the attendance log to update the attendance of students on a particular day."""
     if day in attendance_log:
-        attendance_log[day] += [student]
+        if student not in attendance_log[day]:
+            attendance_log[day] = attendance_log[day] + [student]
     else:
         attendance_log[day] = [student]
-   
+
     return attendance_log
 
 
