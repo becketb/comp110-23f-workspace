@@ -1,4 +1,4 @@
-"""EX01 - Chardle - A cute step toward Wordle."""
+"""EX01 - Chardle - Step one of a series of steps to overthrow The New York Times (satire)."""
 
 __author__ = "730529193"
 
@@ -14,33 +14,34 @@ if len(single_character) != 1:
     exit()
 else: 
     print("Searching for " + single_character + " in " + five_word)
-# code for instances and matching indices
+# code for instances
 instance = 0
-matching = False
+
 if five_word[0] == single_character:
     instance = instance + 1
     print(single_character + " found at index 0.")
-    matching = False
+    
 if five_word[1] == single_character:
     instance = instance + 1
     print(single_character + " found at index 1.")
-    matching = True
+    
 if five_word[2] == single_character:
     instance = instance + 1
     print(single_character + " found at index 2.")
-    matching = True
+    
 if five_word[3] == single_character:
     instance = instance + 1
     print(single_character + " found at index 3.")
-    matching = True
+    
 if five_word[4] == single_character:
     instance = instance + 1
     print(single_character + " found at index 4.")
-    matching = True
+    
 if instance == 1:
     print(str(instance) + " instance of " + single_character + " found in " + five_word)
 else:
     if instance > 1:
         print(str(instance) + " instances of " + single_character + " found in " + five_word)    
+
 if instance == 0:
     print("No instances of " + single_character + " found in " + five_word)

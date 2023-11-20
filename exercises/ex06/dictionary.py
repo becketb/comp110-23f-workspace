@@ -9,8 +9,9 @@ def invert(teams: dict[str, str]) -> dict[str, str]:
     for key in teams:
         value = teams[key]
         if value in teams_invert:
-            raise KeyError("Duplicate value encountered")
-        teams_invert[value] = key
+            teams_invert[value] = key
+        else:
+            teams_invert[value] = key
     return teams_invert
 
 
